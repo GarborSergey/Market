@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ category.name }}
+{% endblock %}
+
+{% block content %}
+  <h3>{{ product.name }}</h3>
+  <div align="left">
+      <p>{{ product.category.name }}</p>
+      {{ product.description }}
+      <hr>
+      <p>Опубликовано - {{ product.date_added|date:"d.m.Y" }}</p>
+  </div>
+{% endblock %}

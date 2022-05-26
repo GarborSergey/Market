@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+  Categories
+{% endblock %}
+
+{% block content %}
+  <h3>All Categories</h3>
+  {% for category in categories %}
+    <div align="left">
+      <h5>{{ category.name }}</h5>
+      <a href="{{ category.get_absolute_url }}"><p>Смотреть полностью</p></a>
+      <hr>
+    </div>
+  {% endfor %}
+{% endblock %}
