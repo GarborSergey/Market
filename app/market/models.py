@@ -4,7 +4,7 @@ from django.urls import reverse
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
-    category = models.ForeignKey('Category', on_delete=models.CASCADE)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='products')
     description = models.TextField()
     cost = models.FloatField()
     published = models.BooleanField(default=True)
@@ -24,4 +24,4 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category', args=[self.slug])
+        return reverse('market:category_detail', kwargs={'category_slug': self.slug})
