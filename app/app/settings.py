@@ -1,10 +1,13 @@
 import os
 from pathlib import Path
-from .prod_settings import KEY
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = KEY
+SECRET_KEY = os.getenv('DJANGO_KEY')
+
 
 DEBUG = True
 
